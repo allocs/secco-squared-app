@@ -1,0 +1,1 @@
+# secco-squared-app
