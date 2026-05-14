@@ -28,6 +28,21 @@ export async function submitLead(formData: FormData) {
         console.log(error)
         return
     }
-    console.log(rawFormData)
+    try { //https://stackoverflow.com/questions/66739797/how-to-handle-a-post-request-in-next-js
+        const response = await fetch("https://webhook-receiver-flax.vercel.app/api/lead-webhook", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+                "X-Candidate-Name": "Alexandra Jans"
+            },
+            body: JSON.stringify({
+                formData
+            })
+        })
+        console.log(response)
+    } catch (error) {
+        console.error("messed up the webhook stuff", error)
+    }
+
 
 }
