@@ -2,9 +2,9 @@ import { createClient } from "@/lib/supabase/server";
 import { Suspense } from "react";
 
 
-function decodeHowdyaHear(lead) {
+function decodeHowdyaHear(howdyaHear: any) {
     var outputString = "";
-    switch (lead.howdyaHear) {
+    switch (howdyaHear) {
         case 1:
             outputString = "Google";
             break;
@@ -63,7 +63,7 @@ async function LeadsData() {
                                 {lead.company}
                             </td>
                             <td>
-                                {decodeHowdyaHear(lead)}
+                                {decodeHowdyaHear(lead.howdyaHear)}
                             </td>
                             <td>
                                 {lead.message}
