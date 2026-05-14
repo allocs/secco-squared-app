@@ -17,12 +17,23 @@ export function LeadCapturer() {
             action={submitLead}
             className="grid"
         >
-            <input name="name" placeholder="Full Name" />
-            <input name="email" placeholder="Email" />
+            <input
+                type="text"
+                name="name"
+                placeholder="Full Name"
+                required
+            />
+            <input name="email" type="email" placeholder="Email" required />
             <input name="company" placeholder="Company" />
-            <input name="howdyaHear" placeholder="How Did You Hear About Us?" />
+            <select name="howdyaHear">
+                <option value='0' >How did you hear about us?</option>
+                <option value='1'>Google</option>
+                <option value='2'>Referral</option>
+                <option value='3'>Social</option>
+                <option value='4'>Other</option>
+            </select>
             <textarea name="message" placeholder="Anything else you want to share?" />
-            <button type="submit">Submit</button>
+            <SubmitButton />
         </Form>
     )
 }
